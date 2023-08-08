@@ -11,30 +11,47 @@
     <script>
       var socket = io();
     </script>
-    <section class="Chat-Application-conatiner">
-      <div class="message-container">
-        <div class="message-wrapper">
-          <div class="each-msg-container">
-            <p class="others-message">Hello Abhiram</p>
+    <section class="app-conatiner">
+      <section class="left-conatier">
+        <div class="left-wrapper">
+          <div class="room-id-conatiner">
+            <h2>Room ID:</h2>
+            <p class="room-id-value">abhi10656</p>
           </div>
-          <div class="each-msg-container your-msg">
-            <p class="others-message">Hello Abhiram</p>
+          <div class="users-conatiner">
+            <h2>Users:</h2>
+            <div class="username-conatiner">
+              <p>abhiram</p>
+              <p>shilpa</p>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="textbox-conatiner">
-        <form id="userChatbox" onsubmit="handleChatSubmit(event)">
-          <div class="text-conatiners">
-            <input
-              type="text"
-              name="message"
-              placeholder="message"
-              autocomplete="off"
-            />
-            <button type="submit">send</button>
+      </section>
+      <section class="Chat-Application-conatiner">
+        <div class="message-container">
+          <div class="message-wrapper">
+            <div class="each-msg-container">
+              <p class="others-message">Hello Abhiram</p>
+            </div>
+            <div class="each-msg-container your-msg">
+              <p class="others-message">Hello Abhiram</p>
+            </div>
           </div>
-        </form>
-      </div>
+        </div>
+        <div class="textbox-conatiner">
+          <form id="userChatbox" onsubmit="handleChatSubmit(event)">
+            <div class="text-conatiners">
+              <input
+                type="text"
+                name="message"
+                placeholder="message"
+                autocomplete="off"
+              />
+              <button type="submit">send</button>
+            </div>
+          </form>
+        </div>
+      </section>
     </section>
     <script>
       const url = window.location.search;

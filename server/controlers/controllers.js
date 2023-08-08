@@ -18,7 +18,7 @@ const addUser = ({ id, username, roomID }) => {
   //if user exsits return error message
   if(userexsits) {
     return {
-      error: "username already in use please another username",
+      error: "username already in use please use another username",
     };
   }else {
     const user = {
@@ -36,7 +36,7 @@ const removeUser = (id) =>{
     const afterRemovingUser = users.filter((user)=>{
         return user.id !== id;
     });
-    users = [...afterRemovingUser];
+   users = [...afterRemovingUser];
 }
 
 module.exports = {

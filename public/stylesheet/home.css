@@ -7,6 +7,7 @@
 }
 .Chat-Application-conatiner{
     padding: 0 10px;
+    width: calc(100% - 200px);
 }
 .message-container{
    height: calc(100vh - 30px); 
@@ -39,25 +40,29 @@
     color: #fff;
     
 }
+
 #userChatbox input {
-    width: calc(100% - 70px);
     border: none;
     background-color: antiquewhite;
     font-size: 14px;
     padding: 7px 3px;
+    width: 100%;
     border-radius: 3px;
+}
+
+.textbox-conatiner{
+    position: relative;
 }
 
 .text-conatiners {
     display: flex;
     align-items: center;
-    margin: 0 0 4px;
+    margin: 0 4px 4px;
     gap: 3px;
     position: fixed;
     bottom: 0;
-    left: 13px;
     right: 0px;
-    width: 95%;
+    width: calc(100% - 210px);
 }
 .each-msg-container {
     margin: 10px;
@@ -67,4 +72,22 @@
     font-weight: 400;
     margin: 0 0 0 8px;
     color: darkgreen;
+}
+.left-conatier{
+    width: 200px;
+    height: 100vh;
+    background-color: rgba(55, 56, 56, 0.438);
+}
+.app-conatiner{
+    display: flex;
+}
+.room-id-conatiner{
+    padding: 12px 15px;
+    border-bottom: 2px solid #fff;
+}
+.users-conatiner{
+    padding: 12px 15px;
+}
+.username-conatiner {
+    padding: 9px 5px 0;
 }

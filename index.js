@@ -18,7 +18,8 @@ app.use(Router);
 
 io.on("connection", (socket) => {
   socket.on('disconnect',()=>{
-    io.emit('userDisconnected',);
+    //removing user on disconnect
+    removeUser(socket.id);
   })
   socket.on("join", (options, callback) => {
     console.log(`A user is connected: ${options.username} `);
