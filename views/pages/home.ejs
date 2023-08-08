@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chat-Application</title>
+    <link rel="stylesheet" href="../../stylesheet/home.css" />
+  </head>
+  <body>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+      var socket = io();
+    </script>
+    <section class="Chat-Application-conatiner">
+      <div class="message-container">
+        <div class="message-wrapper">
+          <div class="each-msg-container">
+            <p class="others-message">Hello Abhiram</p>
+          </div>
+          <div class="each-msg-container your-msg">
+            <p class="others-message">Hello Abhiram</p>
+          </div>
+        </div>
+      </div>
+      <div class="textbox-conatiner">
+        <form id="userChatbox" onsubmit="handleChatSubmit(event)">
+          <div class="text-conatiners">
+            <input
+              type="text"
+              name="message"
+              placeholder="message"
+              autocomplete="off"
+            />
+            <button type="submit">send</button>
+          </div>
+        </form>
+      </div>
+    </section>
+    <script>
+      const url = window.location.search;
+      const urlparams = new URLSearchParams(url);
+      const username = urlparams.get("username");
+      const roomID = urlparams.get("room_id");
+      const msgContainer = document.querySelector(".message-container");
+
+      socket.emit("join", { username, roomID }, (error) => {
+        if (error) {
+          alert(error);
+          location.href = "/";
+        }
+      });
+
+      function handleChatSubmit(e) {
+        e.preventDefault();
+        const inputElement = document.querySelector("#userChatbox input");
+        socket.emit("send-message", inputElement.value);
+        msgContainer.innerHTML += `<div class="each-msg-container your-msg">
+            <p class="others-message">${inputElement.value}</p>
+          </div>`;
+        inputElement.value = "";
+      }
+
+      socket.on("recevied-message", (mes,username) => {
+        console.log(mes, "message");
+        msgContainer.innerHTML += `<div class="each-msg-container">
+          <p class="username-tag">${username}</p>
+            <p class="others-message">${mes}</p>
+          </div>`;
+      });
+
+      socket.on('userDisconnected',()=>{
+        console.log('user disconnected')
+      })
+    </script>
+  </body>
+</html>

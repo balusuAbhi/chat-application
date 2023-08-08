@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+.Chat-Application-conatiner{
+    padding: 0 10px;
+}
+.message-container{
+   height: calc(100vh - 30px); 
+}
+.others-message {
+    font-size: 16px;
+    /* margin: 10px; */
+    padding: 5px 10px;
+    background-color: steelblue;
+    display: inline-block;
+    color: white;
+    border-radius: 10px;
+}
+.your-msg {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.your-msg>.others-message {
+    background-color: teal;
+}
+#userChatbox button{
+    border: none;
+    padding: 7px 12px;
+    font-size: 14px;
+    background-color: #2e722e;
+    border-radius: 3px;
+    height: 100%;
+    width: 70px;
+    color: #fff;
+    
+}
+#userChatbox input {
+    width: calc(100% - 70px);
+    border: none;
+    background-color: antiquewhite;
+    font-size: 14px;
+    padding: 7px 3px;
+    border-radius: 3px;
+}
+
+.text-conatiners {
+    display: flex;
+    align-items: center;
+    margin: 0 0 4px;
+    gap: 3px;
+    position: fixed;
+    bottom: 0;
+    left: 13px;
+    right: 0px;
+    width: 95%;
+}
+.each-msg-container {
+    margin: 10px;
+}
+.username-tag{
+    font-size: 13px;
+    font-weight: 400;
+    margin: 0 0 0 8px;
+    color: darkgreen;
+}

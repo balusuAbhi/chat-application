@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+.login-main-container{
+    background-color: rgba(0,0,0,0.9);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+#login-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+#login-form input{
+    border: none;
+    font-size: 17px;
+    font-weight: 400;
+    padding: 4px;
+    border-radius: 3px;
+    width: 80%;
+}
+.login-wrapper h1{
+    font-size: 24px;
+    font-weight: 600;
+    color: white;
+    text-align: center;
+    margin: 0 0 20px;
+}
+.login-wrapper{
+    background-color: cadetblue;
+    width: 80%;
+    padding: 30px 0;
+    border-radius: 5px;
+}
+.login-wrapper button{
+    font-size: 18px;
+    border: none;
+    padding: 4px 24px;
+    border-radius: 5px;
+    background: wheat;
+    font-weight: 500;
+    margin: 20px 0 0;
+}
