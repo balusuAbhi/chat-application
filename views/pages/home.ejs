@@ -19,10 +19,8 @@
             <p class="room-id-value">abhi10656</p>
           </div>
           <div class="users-conatiner">
-            <h2>Users:</h2>
+            <h2>Active Users:</h2>
             <div class="username-conatiner">
-              <p>abhiram</p>
-              <p>shilpa</p>
             </div>
           </div>
         </div>
@@ -30,12 +28,6 @@
       <section class="Chat-Application-conatiner">
         <div class="message-container">
           <div class="message-wrapper">
-            <div class="each-msg-container">
-              <p class="others-message">Hello Abhiram</p>
-            </div>
-            <div class="each-msg-container your-msg">
-              <p class="others-message">Hello Abhiram</p>
-            </div>
           </div>
         </div>
         <div class="textbox-conatiner">
@@ -59,6 +51,7 @@
       const username = urlparams.get("username");
       const roomID = urlparams.get("room_id");
       const msgContainer = document.querySelector(".message-container");
+      const usercontainer = document.querySelector(".username-conatiner");
 
       socket.emit("join", { username, roomID }, (error) => {
         if (error) {
@@ -77,7 +70,7 @@
         inputElement.value = "";
       }
 
-      socket.on("recevied-message", (mes,username) => {
+      socket.on("recevied-message", (mes, username) => {
         console.log(mes, "message");
         msgContainer.innerHTML += `<div class="each-msg-container">
           <p class="username-tag">${username}</p>
@@ -85,9 +78,27 @@
           </div>`;
       });
 
-      socket.on('userDisconnected',()=>{
-        console.log('user disconnected')
-      })
+      socket.on("userDisconnected", () => {
+        console.log("user disconnected");
+      });
+
+      socket.on('welcome',(mes)=>{
+        msgContainer.innerHTML += `<div class="admin-container"><h1>Admin</h1><p>Welcome ${mes}!</p></div>`
+      });
+
+      socket.on("usersList", (data) => {
+        usercontainer.innerHTML = "";
+        data.forEach((eachName) => {
+          usercontainer.innerHTML += `<p>${eachName}</p>`;
+        });
+      });
+      
+      socket.on("userNames", (data) => {
+        usercontainer.innerHTML = "";
+        data.forEach((eachName) => {
+          usercontainer.innerHTML += `<p>${eachName}</p>`;
+        });
+      });
     </script>
   </body>
 </html>

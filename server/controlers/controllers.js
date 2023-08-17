@@ -39,6 +39,13 @@ const removeUser = (id) =>{
    users = [...afterRemovingUser];
 }
 
+const getUserdata = ()=>{
+  const usernames = users.map((eachUser)=>{
+    return eachUser.username;
+  })
+  return usernames;
+}
+
 module.exports = {
-  addUser,removeUser
+  addUser,removeUser,getUserdata
 };
