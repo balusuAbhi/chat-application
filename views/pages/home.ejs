@@ -85,6 +85,10 @@
           </div>`;
       });
 
+      socket.on('send-message',(mes)=>{
+        console.log(mes,"message");
+      })
+
       socket.on('userDisconnected',()=>{
         console.log('user disconnected')
       })

@@ -19,6 +19,7 @@ app.use(Router);
 io.on("connection", (socket) => {
   socket.on('disconnect',()=>{
     //removing user on disconnect
+    socket.emit('userDisconnected')
     removeUser(socket.id);
   })
   socket.on("join", (options, callback) => {
@@ -31,6 +32,7 @@ io.on("connection", (socket) => {
       socket.on('send-message',(mes)=>{
         socket.broadcast.to(user.roomid).emit('recevied-message', mes,user.username);
       })
+      io.to(user.roomid).emit('user_added','abhiram user');
     }
   });
 });
